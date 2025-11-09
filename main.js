@@ -1,7 +1,7 @@
+// declare array to storage data 
 var database=[];
-//send.addEventListner("click",function());
 
-
+//declare function  CreathStudent() 
 function CreathStudent(){
 var student={
     fullname:document.getElementById("fullname").value ,
@@ -14,6 +14,7 @@ var student={
  read()
 }
 
+// declare function to show my the data in array 
 function read(){
 document.getElementById("tbody").innerHTML = ""
 for(var i=0;i<database.length;i++){
@@ -29,11 +30,13 @@ document.getElementById("tbody").innerHTML += `
 }
 
 
-
+//declare function to delete student 
 
 function Delete(i){
+    if(confirm(`are you shure you whant to delet this student ${database[i].fullname}`)){
     database.splice(i,1);
-
+    alert("student are succefully deleted")
+    }
   read();
 }
 
@@ -42,11 +45,21 @@ function Delete(i){
 
 
 
-
+// declare funtion to update student and modifier name and note
 
 function update(index){
-    database[index].fullname= prompt(" add new fullname :");
-    database[index].note= prompt("add new note :");
-
+   var newname = prompt("add new name :" ,database[index].fullname);
+   var newnote = prompt("change note :",database[index].note);
+   if(newname!==null && newnote!==null){
+       if(newname.trim()==='' && newnote.trim()===''){
+        alert("it's empty");
+        return 
+    }
+    database[index]={
+        fullname:newname.trim(),
+        note:newnote.trim()
+    }
+   }
+    alert("your upating secsussfuly");
     read();
 }
