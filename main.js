@@ -2,7 +2,7 @@ var database=[];
 //send.addEventListner("click",function());
 
 
-function Zaidzmer(){
+function CreathStudent(){
 var student={
     fullname:document.getElementById("fullname").value ,
     note:document.getElementById("note").value  ,
